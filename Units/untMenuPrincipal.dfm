@@ -37,7 +37,7 @@ object frmMenuPrincipal: TfrmMenuPrincipal
     StyleElements = []
     object pnlMenuCategoria3: TPanel
       Left = 0
-      Top = 66
+      Top = 242
       Width = 185
       Height = 33
       Align = alTop
@@ -46,6 +46,7 @@ object frmMenuPrincipal: TfrmMenuPrincipal
       ParentBackground = False
       TabOrder = 0
       StyleElements = []
+      ExplicitTop = 66
       object btnMenuCategoria3: TSpeedButton
         Left = 0
         Top = 0
@@ -121,7 +122,7 @@ object frmMenuPrincipal: TfrmMenuPrincipal
     end
     object pnlMenuCategoria2: TPanel
       Left = 0
-      Top = 33
+      Top = 209
       Width = 185
       Height = 33
       Align = alTop
@@ -130,6 +131,7 @@ object frmMenuPrincipal: TfrmMenuPrincipal
       ParentBackground = False
       TabOrder = 1
       StyleElements = []
+      ExplicitTop = 33
       object btnMenuCategoria2: TSpeedButton
         Left = 0
         Top = 0
@@ -369,7 +371,7 @@ object frmMenuPrincipal: TfrmMenuPrincipal
     end
     object pnlMenuCategoria5: TPanel
       Left = 0
-      Top = 132
+      Top = 308
       Width = 185
       Height = 33
       Align = alTop
@@ -378,6 +380,7 @@ object frmMenuPrincipal: TfrmMenuPrincipal
       ParentBackground = False
       TabOrder = 2
       StyleElements = []
+      ExplicitTop = 132
       object btnMenuCategoria5: TSpeedButton
         Left = 0
         Top = 0
@@ -452,7 +455,7 @@ object frmMenuPrincipal: TfrmMenuPrincipal
     end
     object pnlMenuCategoria4: TPanel
       Left = 0
-      Top = 99
+      Top = 275
       Width = 185
       Height = 33
       Align = alTop
@@ -461,6 +464,7 @@ object frmMenuPrincipal: TfrmMenuPrincipal
       ParentBackground = False
       TabOrder = 3
       StyleElements = []
+      ExplicitTop = 99
       object btnMenuCategoria4: TSpeedButton
         Left = 0
         Top = 0
@@ -538,7 +542,7 @@ object frmMenuPrincipal: TfrmMenuPrincipal
       Left = 0
       Top = 0
       Width = 185
-      Height = 33
+      Height = 209
       Align = alTop
       BevelOuter = bvNone
       Color = 1248262
@@ -608,14 +612,13 @@ object frmMenuPrincipal: TfrmMenuPrincipal
         Left = 0
         Top = 33
         Width = 185
-        Height = 0
+        Height = 176
         Align = alClient
         BevelOuter = bvNone
         Color = 6246217
         ParentBackground = False
         TabOrder = 0
         StyleElements = []
-        ExplicitHeight = 208
         object btnOpcao1: TSpeedButton
           Left = 0
           Top = 0

@@ -50,7 +50,6 @@ procedure TfrmMenuPrincipal.abrirFormulario(Sender: TObject);
 var
   Formulario  : TForm;
   FormularioClasse : TFormClass;
-  NewTabSheet : TTabSheet;
   NomeFormulario : string;
 begin
 
@@ -78,7 +77,7 @@ var
   dimensao: Double;
 begin
 
-  // Definir qual vai ser o painel manipulado araves do nome do SpeedButton
+  // Definir qual vai ser o painel manipulado atraves do nome do SpeedButton
   NomePanelMenu := StringReplace(TSpeedButton(Sender).Name, 'btn', 'pnl',
     [rfReplaceAll]);
   NomePanelSubMenu := StringReplace(TSpeedButton(Sender).Name, 'btn', 'pnlSub',
