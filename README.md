@@ -11,7 +11,6 @@
 	var
 	  Formulario  : TForm;
 	  FormularioClasse : TFormClass;
-	  NewTabSheet : TTabSheet;
 	  NomeFormulario : string;
 	begin
 
@@ -22,6 +21,7 @@
 	  try
 	    FormularioClasse  := TFormClass(FindClass(NomeFormulario));
 	    Formulario  := FormularioClasse.Create(Application);
+
 	    Formulario.ShowModal;
 	  except
 	    on E: EClassNotFound do
@@ -37,58 +37,42 @@
 	procedure TfrmMenuPrincipal.abrirSubMenu(Sender: TObject);
 	var
 	  NomePanelMenu, NomePanelSubMenu: string;
-	  i, j, k: Integer;
-	  dimensao: Double;
+	  i, dimensao : Integer;
 	begin
 
-	  // Definir qual vai ser o painel manipulado araves do nome do SpeedButton
-	  NomePanelMenu := StringReplace(TSpeedButton(Sender).Name, 'btn', 'pnl',
-	    [rfReplaceAll]);
-	  NomePanelSubMenu := StringReplace(TSpeedButton(Sender).Name, 'btn', 'pnlSub',
-	    [rfReplaceAll]);
+
+	  // Definir qual vai ser o painel manipulado atraves do nome do SpeedButton
+	  NomePanelMenu := StringReplace(TSpeedButton(Sender).Name, 'btn', 'pnl', [rfReplaceAll]);
+	  NomePanelSubMenu := StringReplace(TSpeedButton(Sender).Name, 'btn', 'pnlSub', [rfReplaceAll]);
 	  dimensao := 33;
 
-	  // Encontrar PanelMenu
+	  //percorre os componentes da tela
 	  for i := ComponentCount - 1 downto 0 do
 	  begin
 
-	    if (Copy(TPanel(Components[i]).Name, 1, 7) = 'pnlMenu') and
-	      (TPanel(Components[i]).Name <> NomePanelMenu) then
-	    begin
-	      TPanel(Components[i]).Height := 33;
-	    end;
-
-	    if TPanel(Components[i]).Name = NomePanelMenu then
-	    begin
-
-	      // Encontrar PanelSubMenu
-	      for j := ComponentCount - 1 downto 0 do
-	      begin
-		if TPanel(Components[j]).Name = NomePanelSubMenu then
-		begin
-		  dimensao := 33;
-		  // Calcular a dimenssão
-		  for k := ComponentCount - 1 downto 0 do
-		  begin
-		    if Components[k].GetParentComponent = TPanel(Components[j]) then
-		    begin
-		      dimensao := dimensao + 33;
-		    end;
-		  end;
-
-		  // Setar a dimessão no componente
-		  if TPanel(Components[i]).Height = 33 then
-		  begin
-		    TPanel(Components[i]).Height := Trunc(dimensao);
-		  end
-		  else
-		  begin
+	    //Quando encontrar um Painel Menu diferente do clicado feche
+	       if (Copy(TPanel(Components[i]).Name, 1, 7) = 'pnlMenu') and
+		  (TPanel(Components[i]).Height <> 33) and
+		  (TPanel(Components[i]).Name <> NomePanelMenu) then
 		    TPanel(Components[i]).Height := 33;
-		  end;
-		end;
-	      end;
+
+	    //Calcular a dimensão que sera necessario para o painel expandir
+	    if Components[i].GetParentComponent = TPanel(FindComponent(NomePanelSubMenu)) then
+	    begin
+	      dimensao := dimensao + 33;
 	    end;
+
 	  end;
+
+	  // Setar a dimessão no componente
+	  if TPanel(FindComponent(NomePanelMenu)).Height = 33 then
+	  begin
+	    TPanel(FindComponent(NomePanelMenu)).Height := dimensao;
+	  end else
+	      begin
+		TPanel(FindComponent(NomePanelMenu)).Height := 33;
+	      end;
+
 	end;
 
 Ambas as funções são declaradas dentro das procedures do delphi, para que
