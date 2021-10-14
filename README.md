@@ -1,5 +1,7 @@
 # Menu-VCL Estilo Lateral
 ## Este exemplo esta focado na parte de otimização de código contem duas funções
+Video explicativo
+https://youtu.be/gw8XMchEBAg
 
 ### abrirFormulario:
 	//Esta função faz a abertura do form, atraves do nome do botão. 
